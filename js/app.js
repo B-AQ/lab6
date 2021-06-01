@@ -3,6 +3,7 @@
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm',];
 let countrys =[];
+
 //code from w3school
 
 function random(min, max) {
@@ -35,46 +36,40 @@ console.log(paris);
 let lima=new Country('lima',2,16,4.6);
 console.log(lima);
 
-Country.prototype.cusEachHour=function () {
+Country.prototype.calcCustomersEachHour=function () {
 
   for (let i = 0; i < hours.length; i++) {
     this.cusHourArray.push(random(this.minCustomer, this.maxCustomer));
   }
-},
+};
 
-Country.prototype.cookiesEachHour=function () {
+Country.prototype.calcCookiesEachHour=function () {
 
   for (let i = 0; i < this.cusHourArray.length; i++) {
-    this.cookiesHourArray.push(Math.floor(this.avg * this.cusHourArray[i]));
+    this.cookiesHourArray.push(Math.floor(this.avgCookies * this.cusHourArray[i]));
     this.total+=this.cookiesHourArray[i];
   }
 };
 
+//========== DOM Countrys ==============================
 
-
-
-
-
-//========== DOM Countrys ==========
 let parents = document.getElementById('allcountrys');
+let articleElement=document.createElement('article');
+
+let imgElement=document.createElement('img');
+// appending
+articleElement.appendChild(imgElement);
+imgElement.setAttribute('src','img/salmon.png');
 
 Country.prototype.render=function() {
 
-  let articleElement=document.createElement('article');
   // appending
   parents.appendChild(articleElement);
   console.log(parents);
 
-  let imgElement=document.createElement('img');
-  // appending
-  articleElement.appendChild(imgElement);
-  imgElement.setAttribute('src','img/salmon.png');
-
   let h2Element=document.createElement('h2');
   articleElement.appendChild(h2Element);
   h2Element.textContent=this.name;
-
-
 
   let ulElement=document.createElement('ul');
   articleElement.appendChild(ulElement);
@@ -92,23 +87,15 @@ Country.prototype.render=function() {
   ulElement.appendChild(totalLi);
   totalLi.textContent=(' Total '+this.total+ ' Cookies ');
 
-
-
-  let table=document.createElement('table');
-
-  article.appendChild(table);
-  
-  let dataRow=document.createElement('tr');
-
-  trElement.appendChild(dataRow);
-
+  // let table=document.createElement('table');
+  // article.appendChild(table);
+  // let dataRow=document.createElement('tr');
+  // trElement.appendChild(dataRow);
 };
 
-
-
-
 for (let i = 0; i < countrys.length; i++) {
-  countrys[i].cusEachHour().cookiesEachHour();
+  countrys[i].calcCustomersEachHour();
+  countrys[i].calcCookiesEachHour();
   countrys[i].render();
 }
 
