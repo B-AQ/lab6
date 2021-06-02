@@ -217,4 +217,3 @@ for (let i = 0; i < countrys.length; i++) {
   countrys[i].render();
 }
 makingLastRow();
-
