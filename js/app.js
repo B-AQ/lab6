@@ -217,3 +217,21 @@ for (let i = 0; i < countrys.length; i++) {
   countrys[i].render();
 }
 makingLastRow();
+
+// Making the Event
+
+let aForm=document.getElementById('aForm');
+
+console.log(aForm);
+
+
+// Add Event listener
+
+aForm.addEventListener('submit'.submitter);
+
+function submitter (event){
+  event.preventDefault();
+  console.log(event);
+
+}
+submitter();
