@@ -219,19 +219,29 @@ for (let i = 0; i < countrys.length; i++) {
 makingLastRow();
 
 // Making the Event
-
-let aForm=document.getElementById('aForm');
-
-console.log(aForm);
-
-
 // Add Event listener
+let form=document.getElementById('form');
 
-aForm.addEventListener('submit'.submitter);
+form.addEventListener ('submit',submitter);
 
 function submitter (event){
   event.preventDefault();
   console.log(event);
+
+
+  let name = event.target.name.value;
+  console.log();
+
+  let minCustomer = event.target.minCustomer.value;
+  console.log(minCustomer);
+  let maxCustomer=event.target.maxCustomer.value;
+  console.log(maxCustomer);
+  let avgCookies = event.target.avgCookies.value;
+  console.log(avgCookies);
+  let addedcountry = new Country(name,minCustomer,maxCustomer,avgCookies);
+
+  addedcountry.render();
+  addedcountry.calcCustomersEachHour();
 
 }
 submitter();
