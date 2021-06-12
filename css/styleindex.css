@@ -24,8 +24,11 @@ header h1{
     background-color: rgb(67, 48, 73);
 }
 
-/* #top-section nav ul {
-} */
+a{
+    color: white;
+    text-decoration-line: none;
+
+}
 
 #top-section nav ul li {
     list-style: none; 
@@ -38,7 +41,6 @@ header h1{
     text-decoration-line: none;
     list-style: none;
     color: white;
-    
 }
 
 h2{
@@ -56,6 +58,7 @@ main div img{
     color: white;
     padding: 2%;
 }
+
 #footer-img{
     width: 50%;
     margin-left: 19%;
@@ -65,18 +68,14 @@ main div img{
 #footer ul {
     color: white;
     text-align: center;
-    
 }
 
 #footer ul li {
     list-style: none;
     display: inline-block; 
-    
 }
 
 #footer ul li a{ 
-    
     text-decoration-line: none; 
     color: white;
-    
 }
